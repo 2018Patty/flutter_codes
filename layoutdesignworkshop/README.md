@@ -1,4 +1,5 @@
 # layoutdesignworkshop
+<img src="images/layoutwidget.png">
 
 A new Flutter project.
 
