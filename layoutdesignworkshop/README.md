@@ -1,5 +1,5 @@
 # layoutdesignworkshop
-<img src="images/layoutwidget.png" style="width: 200px; height:300px">
+<img src="images/layoutwidget.png" style="width: 200px; height:350px">
 
 A new Flutter project.
 
