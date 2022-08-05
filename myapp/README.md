@@ -1,5 +1,5 @@
 # myapp
-<img src="images/myfirstapp.png" style="width:200px; height: 250px;">
+<img src="images/myfirstapp.png" style="width:200px; height: 300px;">
 A new Flutter project.
 
 ## Getting Started
