@@ -1,6 +1,7 @@
 // ignore_for_file: sort_child_properties_last, unnecessary_string_interpolations
 
 import 'package:flutter/material.dart';
+import 'package:listdemo/bookcard.dart';
 import 'book.dart';
 
 void main() {
@@ -20,29 +21,44 @@ class MyApp extends StatelessWidget {
   }
 }
 
-class ListDemo extends StatelessWidget {
-  final List<Book> books = [
-    Book(name: 'Flutter', author: 'Peter'),
-    Book(name: 'Database', author: 'Peter'),
-    Book(name: 'Python', author: 'Peter'),
-    Book(name: 'IoT', author: 'Peter'),
-  ];
+class ListDemo extends StatefulWidget {
 
   ListDemo({
     Key? key,
   }) : super(key: key);
 
   @override
+  State<ListDemo> createState() => _ListDemoState();
+}
+
+class _ListDemoState extends State<ListDemo> {
+   List<Book> books = [
+    Book(name: 'Flutter', author: 'Peter', cover: 'python.jpg'),
+    Book(name: 'Database', author: 'Peter', cover: 'python.jpg'),
+    Book(name: 'Python', author: 'Peter', cover: 'python.jpg'),
+    Book(name: 'IoT', author: 'Peter', cover: 'python.jpg'),
+  ];
+
+  @override
   Widget build(BuildContext context) {
     return Scaffold(
       body: SafeArea(
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: books
-              .map(
-                (book) => buildBookCard(book),
-              )
-              .toList(),
+        child: SingleChildScrollView(
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: books
+                .map(
+                  (book) => BookCard(
+                      book: book,
+                      delete: () {
+                        setState(() {
+                          books.remove(book);
+                        });
+                        
+                      }),
+                )
+                .toList(),
+          ),
         ),
       ),
     );
@@ -50,19 +66,15 @@ class ListDemo extends StatelessWidget {
 
   Card buildBookCard(Book book) {
     return Card(
-                margin: EdgeInsets.fromLTRB(30,20,30,10),
-                child: Padding(
-                  padding: const EdgeInsets.all(10.0),
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.stretch,
-                    children: [
-                      Text('${book.name}'),
-                      Text('${book.author}')
-                    ],
-                  ),
-                ),
-                color: Colors.amber[300],
-
-              );
+      margin: EdgeInsets.fromLTRB(30, 20, 30, 10),
+      child: Padding(
+        padding: const EdgeInsets.all(10.0),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.stretch,
+          children: [Text('${book.name}'), Text('${book.author}')],
+        ),
+      ),
+      color: Colors.amber[300],
+    );
   }
 }

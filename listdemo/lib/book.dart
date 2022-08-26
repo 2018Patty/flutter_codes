@@ -3,6 +3,9 @@
 class Book {
   String name = "";
   String author = "";
+  String cover = "";
+
+  // String? c; allow nullsafety
 
   //Old style
   // Book(String name, String author) {
@@ -11,5 +14,5 @@ class Book {
   // }
 
   //Name parameters
-  Book({required this.name, required this.author});
+  Book({required this.name, required this.author, required this.cover});
 }
