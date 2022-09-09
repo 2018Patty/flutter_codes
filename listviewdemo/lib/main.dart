@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:listviewdemo/addressbook.dart';
+import 'package:listviewdemo/memberlist.dart';
 import 'package:listviewdemo/mypost.dart';
 import 'package:listviewdemo/mystory.dart';
 
@@ -14,27 +16,30 @@ class MyApp extends StatelessWidget {
   ];
 
   final List stories = ['Fun', 'Excited', 'Sad', 'Happy'];
-  
+
   MyApp({Key? key}) : super(key: key);
 
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
+    return  const MaterialApp(
       debugShowCheckedModeBanner: false,
       // home: MyStory(story: 'test',)
-      home: Home(posts: posts),
+      // home: Home(posts: posts),
+      home: MemberList(),
+      // home: AddressBook(),
     );
   }
 }
 
 class Home extends StatelessWidget {
-  const Home({
+   Home({
     Key? key,
     required this.posts,
   }) : super(key: key);
 
   final List posts;
+  
 
   @override
   Widget build(BuildContext context) {
@@ -60,6 +65,30 @@ class Home extends StatelessWidget {
                 itemCount: posts.length,
                 itemBuilder: (context, index) {
                   return MyPost(post: posts[index]);
+                  // return ListTile(
+                  //   onTap: () {},
+                  //   // leading:CircleAvatar(child: Text(member[index]['name'][0])),
+                  //   leading: Container(
+                  //     width: 60,
+                  //     height: 60,
+                  //     decoration: BoxDecoration(
+                  //       color: Colors.pink,
+                  //       borderRadius: BorderRadius.circular(60 / 2),
+                  //       image: DecorationImage(
+                  //         fit: BoxFit.cover,
+                  //         image: NetworkImage(
+                  //           member[index]['picture'],
+                  //         ),
+                  //       ),
+                  //     ),
+                  //   ),
+                  //   title: Text(member[index]['name']),
+                  //   subtitle: Text(member[index]['name']),
+                  //   trailing: GestureDetector(
+                  //     child: const Icon(Icons.delete),
+                  //     onTap: () {},
+                  //   ),
+                  // );
                 },
               ),
             ),
