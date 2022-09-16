@@ -23,7 +23,7 @@ class _WelcomeState extends State<Welcome> {
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             Text(
-              'Welcome ${data!['name']}',
+              'Welcome ${data!['email']}',
               style: const TextStyle(
                 fontSize: 20,
               ),
